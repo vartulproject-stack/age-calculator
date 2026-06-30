@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Age Calculator | Vartul - Project 6/100</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      width: 90%;
+      max-width: 350px;
+    }
+    
+    h2 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+    
+    p {
+      color: #666;
+      margin-bottom: 15px;
+    }
+    
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 15px 0;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    
+    button {
+      background: #667eea;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+      font-weight: bold;
+    }
+    
+    button:hover {
+      background: #5568d3;
+    }
+    
+    button:active {
+      transform: scale(0.98);
+    }
+    
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #667eea;
+      min-height: 25px;
+    }
+    
+    .footer {
+      font-size: 12px;
+      color: #999;
+      margin-top: 20px;
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Age Calculator 🎂</h2>
+    <p>Apni DOB Daalo</p>
+    <input type="date" id="dob">
+    <button onclick="calcAge()">Age Nikalo</button>
+    <div id="result"></div>
+    <p class="footer">Project 6/100 | Rukna Mana Hai 👑</p>
+  </div>
+
+  <script>
+    function calcAge() {
+      let dob = document.getElementById('dob').value;
+      
+      if (dob == '') {
+        document.getElementById('result').innerText = 'Pehle DOB daal bhai 😭';
+        return;
+      }
+      
+      let age = new Date() - new Date(dob);
+      let saal = Math.floor(age / 31536000000);
+      
+      document.getElementById('result').innerText = saal + ' saal ka hai tu 👑';
+    }
+  </script>
+</body>
+</html>
